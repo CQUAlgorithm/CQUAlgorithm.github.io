@@ -201,6 +201,56 @@
       text-underline-offset: 3px;
     }
 
+    .ta-card {
+      margin-top: 20px;
+      padding: 17px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      background: rgba(255, 255, 255, 0.055);
+    }
+
+    .ta-label {
+      margin: 0 0 3px;
+      color: var(--gold);
+      font-size: 0.72rem;
+      font-weight: 750;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .ta-card h3 {
+      margin: 0 0 11px;
+      color: #fff;
+      font-family: Georgia, "Songti SC", "SimSun", serif;
+      font-size: 1.12rem;
+      font-weight: 600;
+    }
+
+    .ta-card dl {
+      display: grid;
+      gap: 7px;
+      margin: 0;
+    }
+
+    .ta-row {
+      display: grid;
+      grid-template-columns: 65px minmax(0, 1fr);
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .ta-row dt {
+      color: rgba(255, 255, 255, 0.46);
+      font-size: 0.75rem;
+    }
+
+    .ta-row dd {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.82rem;
+    }
+
     .side-nav {
       display: grid;
       gap: 2px;
@@ -308,6 +358,53 @@
       margin-top: 2px;
       color: var(--muted);
       font-size: 0.78rem;
+    }
+
+    .important-notice {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+      margin-top: 26px;
+      padding: 20px 24px;
+      border: 1px solid #e8c8c3;
+      border-left: 5px solid #a63d32;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      background: #fff8f6;
+      box-shadow: 0 10px 28px rgba(119, 46, 38, 0.07);
+    }
+
+    .important-notice-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #a63d32;
+      color: #fff;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .important-notice h2 {
+      margin: 0;
+      color: #7e2d25;
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+    }
+
+    .important-notice p {
+      margin: 2px 0 0;
+      color: #4e2a26;
+      font-size: 1rem;
+      font-weight: 650;
+    }
+
+    .important-notice.is-empty p {
+      color: #725e5b;
+      font-weight: 500;
     }
 
     .section { margin-top: 42px; }
@@ -497,11 +594,64 @@
     }
 
     .resource-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .resource-group {
       overflow: hidden;
       border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-md);
       background: var(--paper);
-      box-shadow: var(--shadow);
+      box-shadow: 0 8px 24px rgba(20, 43, 68, 0.045);
+    }
+
+    .resource-group summary {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto 24px;
+      gap: 14px;
+      align-items: center;
+      min-height: 62px;
+      padding: 14px 20px;
+      color: var(--navy-950);
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+      user-select: none;
+      transition: background 0.18s ease;
+    }
+
+    .resource-group summary::-webkit-details-marker { display: none; }
+    .resource-group summary:hover { background: var(--blue-50); }
+
+    .resource-group summary::after {
+      display: grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      content: "+";
+      border-radius: 50%;
+      background: var(--blue-100);
+      color: var(--navy-700);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .resource-group[open] summary {
+      border-bottom: 1px solid var(--line);
+      background: var(--blue-50);
+    }
+
+    .resource-group[open] summary::after { content: "−"; }
+
+    .resource-count {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 500;
+      white-space: nowrap;
     }
 
     .resource-item {
@@ -515,7 +665,7 @@
       transition: background 0.18s ease, padding-left 0.18s ease;
     }
 
-    .resource-item:last-child { border-bottom: 0; }
+    .resource-items .resource-item:last-child { border-bottom: 0; }
 
     .resource-item:hover {
       padding-left: 29px;
@@ -639,6 +789,7 @@
       .main { padding: 34px 20px 30px; }
       .masthead { grid-template-columns: 1fr; align-items: start; }
       .term-badge { min-width: 0; width: max-content; }
+      .important-notice { grid-template-columns: auto minmax(0, 1fr); padding: 17px 18px; }
       .info-grid { grid-template-columns: 1fr; }
       .info-card { min-height: 0; border-right: 0; border-bottom: 1px solid var(--line); }
       .info-card:last-child { border-bottom: 0; }
@@ -648,6 +799,9 @@
       .resource-item { grid-template-columns: 48px minmax(0, 1fr); gap: 12px; padding: 17px 18px; }
       .resource-item:hover { padding-left: 21px; }
       .download { grid-column: 2; }
+      .resource-group summary { grid-template-columns: minmax(0, 1fr) 24px; }
+      .resource-count { grid-column: 1; grid-row: 2; }
+      .resource-group summary::after { grid-column: 2; grid-row: 1 / span 2; }
       footer { flex-direction: column; gap: 4px; }
     }
 
@@ -673,7 +827,7 @@
       .school-mark, .teacher h2, .office-item dd { color: #111; }
       .side-nav, .sidebar-note, .download { display: none; }
       .main { width: 100%; padding: 32px 0; }
-      .assessment-card, .info-grid, .resource-list, .policy-card { box-shadow: none; break-inside: avoid; }
+      .assessment-card, .info-grid, .resource-group, .policy-card { box-shadow: none; break-inside: avoid; }
     }
   </style>
 </head>
@@ -710,7 +864,23 @@
         </dl>
       </section>
 
+      <section class="ta-card" aria-labelledby="ta-name">
+        <p class="ta-label">Teaching Assistant</p>
+        <h3 id="ta-name">秦郅涵</h3>
+        <dl>
+          <div class="ta-row">
+            <dt>联系方式</dt>
+            <dd>课程群内联系</dd>
+          </div>
+          <div class="ta-row">
+            <dt>答疑时间</dt>
+            <dd>周五 19:00–20:30</dd>
+          </div>
+        </dl>
+      </section>
+
       <nav class="side-nav" aria-label="页面导航">
+        <a href="#important-notice">重要通知</a>
         <a href="#schedule">课程安排</a>
         <a href="#assessment">成绩构成</a>
         <a href="#resources">课程资源</a>
@@ -734,6 +904,15 @@
           <span>秋季学期</span>
         </div>
       </header>
+
+      <!-- 有通知时：替换下方文字，并删除 class 中的 is-empty。 -->
+      <section class="important-notice is-empty" id="important-notice" aria-labelledby="important-notice-title">
+        <span class="important-notice-mark" aria-hidden="true">!</span>
+        <div>
+          <h2 id="important-notice-title">重要通知</h2>
+          <p>暂无重要通知</p>
+        </div>
+      </section>
 
       <section class="section" id="schedule" aria-labelledby="schedule-title">
         <div class="section-heading">
@@ -808,32 +987,58 @@
         </div>
 
         <div class="resource-list">
-          <!-- 请将 PDF 放入 resources 文件夹，并按下方 href 命名。 -->
-          <a class="resource-item" href="resources/lecture-01.pdf" download>
-            <span class="week">WEEK 01</span>
-            <span class="resource-title"><strong>课程导论与复杂度分析</strong><span>算法、渐近符号与程序性能评估 · PDF</span></span>
-            <span class="download">下载课件</span>
-          </a>
-          <a class="resource-item" href="resources/lecture-02.pdf" download>
-            <span class="week">WEEK 02</span>
-            <span class="resource-title"><strong>线性表：数组、链表与应用</strong><span>抽象数据类型、存储结构与典型操作 · PDF</span></span>
-            <span class="download">下载课件</span>
-          </a>
-          <a class="resource-item" href="resources/lecture-03.pdf" download>
-            <span class="week">WEEK 03</span>
-            <span class="resource-title"><strong>栈、队列与递归</strong><span>受限线性结构、递归机制与问题求解 · PDF</span></span>
-            <span class="download">下载课件</span>
-          </a>
-          <a class="resource-item" href="resources/lecture-04.pdf" download>
-            <span class="week">WEEK 04</span>
-            <span class="resource-title"><strong>树与二叉树</strong><span>遍历、搜索树、堆与优先队列 · PDF</span></span>
-            <span class="download">下载课件</span>
-          </a>
-          <div class="resource-item pending" aria-label="图与图算法课件待发布">
-            <span class="week">WEEK 05</span>
-            <span class="resource-title"><strong>图与图算法</strong><span>图的表示、遍历与最短路径</span></span>
-            <span class="download">待发布</span>
-          </div>
+          <!-- 请将 PDF 放入 resources 文件夹，并按下方 href 命名。可继续复制 details 分组。 -->
+          <details class="resource-group" open>
+            <summary>
+              <span>第一部分 · 算法基础与线性结构</span>
+              <span class="resource-count">3 份课件</span>
+            </summary>
+            <div class="resource-items">
+              <a class="resource-item" href="resources/lecture-01.pdf" download>
+                <span class="week">WEEK 01</span>
+                <span class="resource-title"><strong>课程导论与复杂度分析</strong><span>算法、渐近符号与程序性能评估 · PDF</span></span>
+                <span class="download">下载课件</span>
+              </a>
+              <a class="resource-item" href="resources/lecture-02.pdf" download>
+                <span class="week">WEEK 02</span>
+                <span class="resource-title"><strong>线性表：数组、链表与应用</strong><span>抽象数据类型、存储结构与典型操作 · PDF</span></span>
+                <span class="download">下载课件</span>
+              </a>
+              <a class="resource-item" href="resources/lecture-03.pdf" download>
+                <span class="week">WEEK 03</span>
+                <span class="resource-title"><strong>栈、队列与递归</strong><span>受限线性结构、递归机制与问题求解 · PDF</span></span>
+                <span class="download">下载课件</span>
+              </a>
+            </div>
+          </details>
+
+          <details class="resource-group">
+            <summary>
+              <span>第二部分 · 树结构</span>
+              <span class="resource-count">1 份课件</span>
+            </summary>
+            <div class="resource-items">
+              <a class="resource-item" href="resources/lecture-04.pdf" download>
+                <span class="week">WEEK 04</span>
+                <span class="resource-title"><strong>树与二叉树</strong><span>遍历、搜索树、堆与优先队列 · PDF</span></span>
+                <span class="download">下载课件</span>
+              </a>
+            </div>
+          </details>
+
+          <details class="resource-group">
+            <summary>
+              <span>第三部分 · 图与算法设计</span>
+              <span class="resource-count">待更新</span>
+            </summary>
+            <div class="resource-items">
+              <div class="resource-item pending" aria-label="图与图算法课件待发布">
+                <span class="week">WEEK 05</span>
+                <span class="resource-title"><strong>图与图算法</strong><span>图的表示、遍历与最短路径</span></span>
+                <span class="download">待发布</span>
+              </div>
+            </div>
+          </details>
         </div>
         <p class="resource-note">课件仅供本课程教学使用，请勿未经许可公开转载。</p>
       </section>
@@ -847,7 +1052,7 @@
         <div class="policy-grid">
           <article class="policy-card">
             <h3>学术诚信</h3>
-            <p>鼓励讨论思路，但提交内容须独立完成。引用外部代码或资料时，应清楚标注来源。</p>
+            <p>鼓励讨论思路，但提交内容须独立完成。如发现抄袭，<strong>双方均会判定为零分</strong>strong>，请勿抄袭。</p>
           </article>
           <article class="policy-card">
             <h3>作业提交</h3>
@@ -858,7 +1063,7 @@
 
       <footer>
         <span>© 2026 数据结构与算法课程组</span>
-        <span>面向本科生的课程信息主页</span>
+        <span>重庆大学</span>
       </footer>
     </main>
   </div>
