@@ -1176,6 +1176,34 @@
       .main { width: 100%; padding: 32px 0; }
       .assessment-card, .info-grid, .resource-group, .policy-card { box-shadow: none; break-inside: avoid; }
     }
+
+    /* 课程资源更新状态 */
+    #resources .resource-heading-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    #resources .resource-update-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border: 1px solid #b9d8c7;
+      border-radius: 999px;
+      background: #f0f8f4;
+      color: #2c7651;
+      font-size: 0.75rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    
+    #resources .resource-update-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2c7651;
+    }
   </style>
 </head>
 <body>
@@ -1302,7 +1330,15 @@
       <section class="section" id="resources" aria-labelledby="resources-title">
         <div class="section-heading">
           <h2 id="resources-title">课程资源</h2>
-          <span class="section-kicker">Lecture Materials</span>
+        
+          <div class="resource-heading-meta">
+            <span class="resource-update-badge">
+              <span class="resource-update-dot"></span>
+              更新至 WEEK 04
+            </span>
+        
+            <span class="section-kicker">Lecture Materials</span>
+          </div>
         </div>
 
         <div class="resource-panel">
